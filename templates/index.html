@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/static/img/lpu-icon.png">
     <title>Disease Prediction</title>
     <link rel="stylesheet" href="../static/css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,8 +18,8 @@
     <section class="center-body">
         <img src="../static/img/lpu-icon.png" alt="logo"
             style="height: 150px;display: block;margin-left: auto;margin-right: auto;width: 150px;">
-        <h2 style="text-align: center;">Disease Prediction</h2>
-        <h3 style="text-align: center;">Please Enter Your Symptoms</h3>
+        <h2 style="text-align: center;color: white;font-weight: 500;">Disease Prediction</h2>
+        <h3 style="text-align: center;color: wheat;font-weight: 400;">Please Enter Your Symptoms</h3>
         <section class="inner-body" style="position: relative;">
             <div class="tags-input">
                 <ul id="tags"></ul>
@@ -157,25 +158,26 @@
                     <option value="Red Sore Around Nose">
                     <option value="Yellow Crust Ooze">
                 </datalist>
-                <form action="{{ url_for('predict')}}" method="POST" style="text-align: center;" id="prediction-form">
+                <form action="http://127.0.0.1:5000" method="POST" style="text-align: center;" id="prediction-form">
                     <button type="submit" id="submitButton" style="margin-top: 10px;"
                         onclick="run_after_another()">Predict Disease</button>
                 </form>
                 <div id="loadingBarContainer">
                     <div class="progress-bar">
                         <div class="progress"></div>
-                        <div class="progress-text" style="color: black;"></div>
+                        <div class="progress-text" style="color: white;"></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <form hidden action="{{ url_for('predict')}}" method="POST" id="second-prediction-form">
+        <form hidden action="http://127.0.0.1:5000" method="POST" id="second-prediction-form">
             <input name="symptoms" type="text" step="any" id="push-prediction" required>
             <button type="submit">Submit</button>
         </form>
+        
         <div>
-            <h1 style="text-align: center;">{{prediction}}</h1>
+            <h1 style="text-align: center;color: white;font-weight: 500;">{{prediction}}</h1>
         </div>
     </section>
 </body>

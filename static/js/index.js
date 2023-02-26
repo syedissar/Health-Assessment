@@ -73,10 +73,4 @@ function run_after_another(){
   }, 100);
 }
 
-const second_form = document.querySelector("#second-prediction-form");
-console.log(second_form);
-form.addEventListener("submit", (event) => {
-  event.preventDefault(); // Prevents the default form submission behavior
-  // Handle form submission here
-});
 // Loading Bar End
