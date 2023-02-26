@@ -158,7 +158,7 @@
                     <option value="Red Sore Around Nose">
                     <option value="Yellow Crust Ooze">
                 </datalist>
-                <form action="https://disease-prediction-cktq.onrender.com" method="POST" style="text-align: center;" id="prediction-form">
+                <form action="{{ url_for('predict')}}" method="POST" style="text-align: center;" id="prediction-form">
                     <button type="submit" id="submitButton" style="margin-top: 10px;"
                         onclick="run_after_another()">Predict Disease</button>
                 </form>
@@ -171,7 +171,7 @@
             </div>
         </section>
 
-        <form hidden action="https://disease-prediction-cktq.onrender.com" method="POST" id="second-prediction-form">
+        <form hidden action="{{ url_for('predict')}}" method="POST" id="second-prediction-form">
             <input name="symptoms" type="text" step="any" id="push-prediction" required>
             <button type="submit">Submit</button>
         </form>
