@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, render_template
 import pickle
 import numpy as np
 
@@ -8,13 +8,12 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def hello_world():
-    return 'Disease Prediction'
+def index():
+    return render_template('index.html')
 
 
-@app.route('/predict', methods=['POST'])
+@app.route('/', methods=['POST'])
 def predict():
-    take_symptoms = request.form.get('symptoms')
     data_dict = {'symptom_index': {'Itching': 0, 'Skin Rash': 1, 'Nodal Skin Eruptions': 2, 'Continuous Sneezing': 3,
                                    'Shivering': 4, 'Chills': 5, 'Joint Pain': 6, 'Stomach Pain': 7, 'Acidity': 8,
                                    'Ulcers On Tongue': 9, 'Muscle Wasting': 10, 'Vomiting': 11,
@@ -68,24 +67,21 @@ def predict():
                                          'Peptic ulcer diseae', 'Pneumonia', 'Psoriasis', 'Tuberculosis',
                                          'Typhoid', 'Urinary tract infection', 'Varicose veins',
                                          'hepatitis A']}
-
-    def predictDisease(symptoms):
+    if request.method == 'POST':
+        symptoms = request.form.get('symptoms')
         symptoms = symptoms.split(",")
         # creating input data for the models
-
         input_data = [0] * len(data_dict["symptom_index"])
-
         for symptom in symptoms:
             index = data_dict["symptom_index"][symptom]
-            print(index)
             input_data[index] = 1
 
         input_data = np.array(input_data).reshape(1, -1)
         # generating individual outputs
         prediction = data_dict["predictions_classes"][model.predict(input_data)[0]]
-        return prediction
+        print(prediction)
 
-    return predictDisease(take_symptoms)
+    return render_template('index.html', prediction=prediction)
 
 
 if __name__ == "__main__":
