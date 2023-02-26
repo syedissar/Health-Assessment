@@ -159,15 +159,14 @@
                     <option value="Yellow Crust Ooze">
                 </datalist>
                 <form action="{{ url_for('predict')}}" method="POST" style="text-align: center;" id="prediction-form">
-                    <button type="submit" id="submitButton" style="margin-top: 10px;"
-                        onclick="run_after_another()">Predict Disease</button>
+                    <button type="submit" id="submitButton" style="margin-top: 10px;">Predict Disease</button>
                 </form>
-                <div id="loadingBarContainer">
+                <!-- <div id="loadingBarContainer">
                     <div class="progress-bar">
                         <div class="progress"></div>
                         <div class="progress-text" style="color: white;"></div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
 
