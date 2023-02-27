@@ -3,7 +3,7 @@ const tagInputEl = document.getElementById("tag-input");
 const tagSuggestionsEl = document.getElementById("tag-suggestions");
 
 const tags = Array.from(tagSuggestionsEl.options).map((option) => option.value);
-const inputs = []; // array to store input values
+let inputs = ""; // string to store input values
 
 tagInputEl.addEventListener("input", function (event) {
   const tag = this.value.trim();
@@ -12,7 +12,7 @@ tagInputEl.addEventListener("input", function (event) {
     tagEl.innerText = tag;
     tagsEl.appendChild(tagEl);
     this.value = "";
-    inputs.push(tag); // add input value to array
+    inputs += `${tag},`; // add input value to string
   }
 });
 
@@ -22,16 +22,68 @@ tagInputEl.addEventListener("keydown", function (event) {
   }
 });
 
+// Loading Bar Start
 const form = document.querySelector("#prediction-form");
 const submitButton = document.querySelector("#submitButton");
+const loadingBarContainer = document.querySelector("#loadingBarContainer");
+const progress = document.querySelector(".progress");
+const progressText = document.querySelector(".progress-text");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault(); // prevent default form submission behavior
+  loadingBarContainer.style.display = "block"; // show loading bar
   submitButton.disabled = true; // disable submit button
+  let width = 0;
+  let intervalId = setInterval(() => {
+    if (width === 100) {
+      clearInterval(intervalId);
+      progressText.textContent = "Done!";
+      loadingBarContainer.style.display = "none"; // hide loading bar
+      submitButton.disabled = false; // enable submit button
 
-  // save input values to a database or storage medium here
-  console.log(inputs);
+      // save input values to a database or storage medium here
+      console.log(inputs);
 
-  document.querySelector('input[name="symptoms"]').value = inputs;
-  document.getElementById("second-prediction-form").submit();
+      return;
+    }
+
+    width++;
+    progress.style.width = `${width}%`;
+
+    if (width === 1) {
+      progressText.textContent = "ᴘʀᴏᴄᴇꜱꜱɪɴɢ ᴅᴀᴛᴀ";
+    } else if (width === 20) {
+      progressText.textContent = "ꜱᴇɴᴅɪɴɢ ᴛᴏ ᴀᴘɪ";
+    } else if (width === 40) {
+      progressText.textContent = "ꜰᴇᴇᴅɪɴɢ ᴅᴀᴛᴀ ᴛᴏ ᴍᴏᴅᴇʟ";
+    } else if (width === 60) {
+      progressText.textContent = "ᴘʀᴇᴅɪᴄᴛɪɴɢ ᴅɪꜱᴇᴀꜱᴇ";
+    } else if (width === 73) {
+      progressText.textContent = "ꜰɪɴᴀʟɪᴢɪɴɢ ᴘʀᴇᴅɪᴄᴛɪᴏɴ";
+    } else if (width === 85) {
+      progressText.textContent = "ʀᴇᴛʀɪᴇᴠɪɴɢ ᴅᴀᴛᴀ";
+    } else if (width === 100) {
+      // Ajax Request
+      $.ajax({
+        data: {
+          symptoms: (inputs = inputs.slice(0, -1)),
+        },
+        type: "POST",
+        url: "/",
+      }).done(function (data) {
+        $(".main-prediction")
+          .text("Prediction: " + data.prediction)
+          .show();
+        $(".prediction-explanation").text(data.explanation).show();
+      });
+      // Ajax Request
+    }
+  }, 100);
 });
+// Loading Bar End
+
+// Reset Button
+function refreshPage() {
+  window.location.reload();
+}
+// Reset Button

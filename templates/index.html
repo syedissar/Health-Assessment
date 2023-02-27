@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -19,11 +19,11 @@
         <img src="../static/img/lpu-icon.png" alt="logo"
             style="height: 150px;display: block;margin-left: auto;margin-right: auto;width: 150px;">
         <h2 style="text-align: center;color: white;font-weight: 500;">Disease Prediction</h2>
-        <h3 style="text-align: center;color: wheat;font-weight: 400;">Please Enter Your Symptoms</h3>
+        <h3 style="text-align: center;color: wheat;font-weight: 400;">Please Enter Your Symptoms:</h3>
         <section class="inner-body" style="position: relative;">
             <div class="tags-input">
                 <ul id="tags"></ul>
-                <input type="text" placeholder="Enter Symptoms" id="tag-input" list="tag-suggestions">
+                <input type="text" placeholder="Enter Symptoms" id="tag-input" list="tag-suggestions" required>
                 <datalist id="tag-suggestions">
                     <option value="Itching">
                     <option value="Skin Rash">
@@ -158,25 +158,29 @@
                     <option value="Red Sore Around Nose">
                     <option value="Yellow Crust Ooze">
                 </datalist>
-                <form action="{{ url_for('predict')}}" method="POST" style="text-align: center;" id="prediction-form">
-                    <button type="submit" id="submitButton" style="margin-top: 10px;">Predict Disease</button>
+                <form action="" style="text-align: center;" id="prediction-form" onsubmit="">
+                    <button class="reset-button" onClick="refreshPage()">Reset</button>
+                    <button type="submit" id="submitButton" style="margin-top: 10px;">Predict
+                        Disease
+                    </button>
                 </form>
-                <!-- <div id="loadingBarContainer">
+                <div id="loadingBarContainer">
                     <div class="progress-bar">
                         <div class="progress"></div>
-                        <div class="progress-text" style="color: white;"></div>
+                        <div class="progress-text"></div>
                     </div>
-                </div> -->
+                </div>
             </div>
         </section>
 
         <form hidden action="{{ url_for('predict')}}" method="POST" id="second-prediction-form">
             <input name="symptoms" type="text" step="any" id="push-prediction" required>
-            <button type="submit">Submit</button>
+            <button type="submit" id="second_Submit_Button">Submit</button>
         </form>
-        
-        <div>
-            <h1 style="text-align: center;color: white;font-weight: 500;">{{prediction}}</h1>
+
+        <div class="prediction">
+            <h1 class="main-prediction"></h1>
+            <h3 class="prediction-explanation"></h3>
         </div>
     </section>
 </body>
