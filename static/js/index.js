@@ -66,7 +66,7 @@ form.addEventListener("submit", (event) => {
       // Ajax Request
       $.ajax({
         data: {
-          symptoms: (inputs = inputs.slice(0, -1)),
+          input_symptoms: (inputs = inputs.slice(0, -1)),
         },
         type: "POST",
         url: "/",
