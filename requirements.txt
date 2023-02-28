@@ -1,4 +1,4 @@
 flask
 numpy
 gunicorn
-scikit-learn
+scikit-learn==1.2.1
