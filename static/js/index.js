@@ -4,10 +4,11 @@ const tagSuggestionsEl = document.getElementById("tag-suggestions");
 
 const tags = Array.from(tagSuggestionsEl.options).map((option) => option.value);
 let inputs = ""; // string to store input values
-
+document.getElementById('submitButton').disabled=true;
 tagInputEl.addEventListener("input", function (event) {
   const tag = this.value.trim();
   if (tags.includes(tag)) {
+    document.getElementById('submitButton').disabled=false;
     const tagEl = document.createElement("li");
     tagEl.innerText = tag;
     tagsEl.appendChild(tagEl);

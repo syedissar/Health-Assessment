@@ -10,7 +10,7 @@ body {
   background-image: url(/static/img/download.png);
 }
 .center-body {
-  /* background-color: lightblue; */
+  position: relative;
   width: 500px;
   min-height: 650px;
   height: auto;
@@ -19,6 +19,7 @@ body {
   margin: 11px 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   background-image: url(/static/img/disease-background.jpg);
+  border: 10px solid #01132b;
 }
 
 .inner-body {
@@ -110,11 +111,11 @@ body {
   text-decoration: underline;
 }
 
-.symptoms-body{
+.symptoms-body {
   margin: 0 0 20px 0;
 }
 
-.symptoms-images{
+.symptoms-images {
   margin-left: 9px;
   height: 32px;
 }
@@ -130,13 +131,13 @@ body {
   display: inline-block;
 }
 
-.disease-treatment{
+.disease-treatment {
   width: 85%;
   margin-right: auto;
   margin-left: auto;
 }
 
-.treatment-body{
+.treatment-body {
   text-align: center;
   color: white;
   font-weight: 500;
@@ -180,10 +181,6 @@ body {
   padding: 5px;
 }
 .tags-input button[type="submit"] {
-  /* position: absolute;
-  bottom: -50px;
-  left: 50%;
-  transform: translate(-50%, -50%); */
   background-color: #02a102;
   border: none;
   border-radius: 5px;
@@ -232,6 +229,15 @@ body {
   line-height: 20px;
 }
 /* Loading Bar End */
+
+.version {
+  position: absolute;
+  color: white;
+  bottom: -22px;
+  right: 15px;
+  font-weight: 400;
+  font-size: 15px;
+}
 
 /* Media Query Start */
 @media (min-width: 0) and (max-width: 500px) {
