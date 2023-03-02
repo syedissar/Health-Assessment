@@ -4,11 +4,23 @@ const tagSuggestionsEl = document.getElementById("tag-suggestions");
 
 const tags = Array.from(tagSuggestionsEl.options).map((option) => option.value);
 let inputs = ""; // string to store input values
-document.getElementById('submitButton').disabled=true;
+
+// Submit Button
+const psubmit = document.getElementById("submitButton");
+psubmit.disabled = true;
+psubmit.style.backgroundColor = "grey";
+psubmit.style.color = "#b2afaf";
+psubmit.style.cursor = "not-allowed";
+
 tagInputEl.addEventListener("input", function (event) {
   const tag = this.value.trim();
   if (tags.includes(tag)) {
-    document.getElementById('submitButton').disabled=false;
+    // Submit Button
+    psubmit.disabled = false;
+    psubmit.style.backgroundColor = "#02a102";
+    psubmit.style.color = "white";
+    psubmit.style.cursor = "pointer";
+
     const tagEl = document.createElement("li");
     tagEl.innerText = tag;
     tagsEl.appendChild(tagEl);
