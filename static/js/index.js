@@ -29,6 +29,9 @@ const loadingBarContainer = document.querySelector("#loadingBarContainer");
 const progress = document.querySelector(".progress");
 const progressText = document.querySelector(".progress-text");
 
+$(".main-prediction").hide();
+$(".symptoms-title").hide();
+
 form.addEventListener("submit", (event) => {
   event.preventDefault(); // prevent default form submission behavior
   loadingBarContainer.style.display = "block"; // show loading bar
@@ -71,6 +74,8 @@ form.addEventListener("submit", (event) => {
         type: "POST",
         url: "/",
       }).done(function (data) {
+        $(".main-prediction").show();
+        $(".symptoms-title").show();
         $(".main-prediction").text(data.prediction).show();
         $(".prediction-explanation").text(data.explanation).show();
         $(".symptoms-body").html(data.symptoms).show();
