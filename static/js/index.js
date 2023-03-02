@@ -55,7 +55,7 @@ form.addEventListener("submit", (event) => {
     } else if (width === 20) {
       progressText.textContent = "ꜱᴇɴᴅɪɴɢ ᴛᴏ ᴀᴘɪ";
     } else if (width === 40) {
-      progressText.textContent = "ꜰᴇᴇᴅɪɴɢ ᴅᴀᴛᴀ ᴛᴏ ᴍᴏᴅᴇʟ";
+      progressText.textContent = "ꜰᴇᴇᴅɪɴɢ ᴍᴏᴅᴇʟ";
     } else if (width === 60) {
       progressText.textContent = "ᴘʀᴇᴅɪᴄᴛɪɴɢ ᴅɪꜱᴇᴀꜱᴇ";
     } else if (width === 73) {
@@ -71,10 +71,10 @@ form.addEventListener("submit", (event) => {
         type: "POST",
         url: "/",
       }).done(function (data) {
-        $(".main-prediction")
-          .text("Prediction: " + data.prediction)
-          .show();
+        $(".main-prediction").text(data.prediction).show();
         $(".prediction-explanation").text(data.explanation).show();
+        $(".symptoms-body").html(data.symptoms).show();
+        $(".treatment-body").text(data.treatment).show();
       });
       // Ajax Request
     }

@@ -60,11 +60,24 @@ body {
 }
 /* Loading Bar End */
 
+.prediction {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
 .main-prediction {
   text-align: center;
   color: white;
   font-weight: 500;
-  color: #ffd100;
+  color: white;
+  margin-bottom: 30px;
+  padding: 7px 14px;
+  background-color: #1f6491;
+  display: inline-block;
+  border-radius: 15px;
+  border: 1px solid yellow;
 }
 
 .prediction-explanation {
@@ -73,10 +86,63 @@ body {
   font-weight: 500;
   text-align: justify;
   font-weight: 500;
+  margin: 0 0 20px 0;
 }
 
-.prediction {
-  margin: 30px;
+.disease-overview {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.disease-symptoms > div {
+  width: 85%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.symptoms-title {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0 0 15px 0;
+  text-decoration: underline;
+}
+
+.symptoms-body{
+  margin: 0 0 20px 0;
+}
+
+.symptoms-images{
+  margin-left: 9px;
+  height: 32px;
+}
+
+.symptoms-body > span {
+  font-size: 17px;
+  color: white;
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-weight: 400;
+  background-color: red;
+  margin: 3px 0;
+  display: inline-block;
+}
+
+.disease-treatment{
+  width: 85%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.treatment-body{
+  text-align: center;
+  color: white;
+  font-weight: 500;
+  text-align: justify;
+  font-weight: 500;
+  margin: 0 0 15px 0;
 }
 
 .tags-input {
@@ -170,7 +236,7 @@ body {
 /* Media Query Start */
 @media (min-width: 0) and (max-width: 500px) {
   .tags-input {
-    max-width: 95%;
+    width: 100%;
   }
 }
 /* Media Query End */
