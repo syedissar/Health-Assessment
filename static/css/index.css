@@ -343,27 +343,6 @@ body {
   font-weight: 700;
 }
 
-/* Media Query Start */
-@media (min-width: 0) and (max-width: 600px) {
-  .tags-input {
-    width: 100%;
-  }
-  .center-body {
-    width: auto;
-    min-height: 85vh;
-  }
-  .main-page {
-    width: 100%;
-  }
-  .mental-health-prediction-page {
-    width: 100%;
-  }
-  .disease-prediction-page {
-    width: 100%;
-  }
-}
-/* Media Query End */
-
 /* Mental Health Assessment Start */
 .mental-health-form {
   background-color: #373333ab;
@@ -488,7 +467,7 @@ input[type="radio"] {
   height: 200px;
   border-radius: 50%;
   box-sizing: border-box;
-  border: 15px solid #eee;
+  border: 15px solid #ebe7e7e0;
   border-bottom-color: #0bf;
   border-right-color: #0bf;
   color: white;
@@ -509,12 +488,18 @@ input[type="radio"] {
 .internal-mental-health-results {
   display: inline-block;
   width: 210px;
+  margin-bottom: 25px;
 }
+
+#overall-error-fix {
+  margin: 20px 60px;
+}
+
 .disorder-explanation-title {
   color: white;
   font-family: "Barlow Semi Condensed", sans-serif;
   text-align: center;
-  margin: 0 6px 20px 4px;
+  margin: 0 6px 0 4px;
   font-size: 19px;
   padding: 5px 9px;
   background-color: #ffffff54;
@@ -544,7 +529,7 @@ input[type="radio"] {
   border-radius: 0 0 25px 25px;
   color: white;
   font-weight: 100;
-  margin: 0 6px 20px 4px;
+  margin: 0 6px 0 4px;
   position: relative;
   top: 10px;
 }
@@ -560,3 +545,26 @@ input[type="radio"] {
 }
 
 /* Mental Health Assessment End */
+/* Media Query Start */
+@media (min-width: 0) and (max-width: 500px) {
+  .tags-input {
+    width: 100%;
+  }
+  .center-body {
+    width: auto;
+    min-height: 85vh;
+  }
+  .main-page {
+    width: 100%;
+  }
+  .mental-health-prediction-page {
+    width: 100%;
+  }
+  .disease-prediction-page {
+    width: 100%;
+  }
+  #overall-error-fix {
+    margin: 20px 0;
+  }
+}
+/* Media Query End */

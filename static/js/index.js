@@ -277,7 +277,7 @@ SecondForm.addEventListener("submit", (event) => {
       $({ p: 0 }).animate(
         { p: perc },
         {
-          duration: 6000,
+          duration: 4000,
           easing: "swing",
           step: function (p) {
             $bar.css({
@@ -293,7 +293,8 @@ SecondForm.addEventListener("submit", (event) => {
   // Ajax Request
 });
 // Semi Circle Progress Bar
-$("#r-overall-exp").hide();
+$("#r-overall-title").toggleClass("rounded");
+// $("#r-overall-exp").hide();
 $("#r-somat-exp").hide();
 $("#r-ocd-exp").hide();
 $("#r-sens-exp").hide();
