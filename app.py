@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 
 model = pickle.load(open('model.pkl', 'rb'))
-
+model2 = pickle.load(open('reg_model.pkl', 'rb'))
 app = Flask(__name__)
 
 
@@ -221,6 +221,24 @@ def predict():
                             'treatment': send_treatment})
         return jsonify({'error': 'Missing data!'})
     return render_template('index.html')
+
+
+@app.route('/mental', methods=['GET', 'POST'])
+def mental_predict():
+    if request.method == 'POST':
+        mental_report = request.form.get('mental_report')
+        print(mental_report)
+        my_string = mental_report
+        mental_list = [int(val) if val != '' else 0 for val in my_string.split(",")]
+
+        # Reshape the input data to be two-dimensional
+        mental_array = np.array(mental_list).reshape(1, -1)
+        print(mental_array)
+        mental_prediction = model2.predict(mental_array)
+        print(mental_prediction)
+        mental_prediction = np.round(mental_prediction)
+        print(mental_prediction)
+    return jsonify({'mental_report': mental_prediction.tolist()})
 
 
 if __name__ == "__main__":
