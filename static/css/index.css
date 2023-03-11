@@ -336,23 +336,19 @@ body {
 .made-with-love {
   position: absolute;
   color: #ffffff;
-  text-align: center;
   bottom: 0;
-  left: 0;
-  right: 0;
-  font-weight: 400;
-  font-size: 15px;
+  font-size: 11px;
   margin: 0;
   background-color: #082d5f;
-  padding: 4px 10px;
-  border-radius: 17px 17px 0 0;
+  padding: 5px 10px 4px 10px;
+  border-radius: 13px 13px 0 0;
   border: 3px solid #0a5c87;
   border-bottom: none;
-  font-family: monospace;
-  margin-left: auto;
-  margin-right: auto;
-  width: 160px;
-  font-weight: 700;
+  font-family: 'Martian Mono';
+  left: 50%;
+  transform: translate(-50%, 0%);
+  white-space: nowrap;
+  font-weight: 400;
 }
 
 /* Mental Health Assessment Start */
