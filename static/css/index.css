@@ -32,6 +32,7 @@ body {
 
 .main-page {
   position: absolute;
+  margin-bottom: 50px;
 }
 
 .note-warning {
@@ -116,8 +117,7 @@ body {
 .center-body {
   position: relative;
   width: 500px;
-  min-height: 650px;
-  height: auto;
+  min-height: 600px;
   border-radius: 15px;
   padding: 30px 10px;
   margin: 11px 10px;
@@ -127,7 +127,6 @@ body {
   background-color: #ffffff;
   border: 10px solid #01132b;
   background-size: cover;
-  margin-bottom: 50px;
 }
 
 .inner-body {
@@ -381,7 +380,7 @@ body {
   /* border-radius: 13px 13px 0 0; */
   /* border: 3px solid #0a5c87; */
   position: absolute;
-  color: #01132bc2;
+  color: #003f8fba;
   bottom: -20px;
   font-size: 11px;
   margin: 0;
@@ -391,8 +390,8 @@ body {
   transform: translate(-50%, 0%);
   white-space: nowrap;
   font-weight: 600;
-  z-index: -1;
-  font-size: 13px;
+  /* z-index: -1; */
+  font-size: 12px;
 }
 
 /* Mental Health Assessment Start */
@@ -597,7 +596,6 @@ input[type="radio"] {
   }
   .center-body {
     width: auto;
-    min-height: 85vh;
   }
   .main-page {
     width: 100%;

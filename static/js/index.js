@@ -136,11 +136,10 @@ function resetTags() {
   tags = [];
   tags = Array.from(tagSuggestionsEl.options).map((option) => option.value);
   inputs = "";
-  $(".main-prediction").hide();
-  $(".symptoms-title").hide();
-  $(".prediction-explanation").hide();
-  $(".symptoms-body").hide();
-  $(".treatment-body").hide();
+  $(".prediction").hide();
+  $(".disease-overview").hide();
+  $(".disease-symptoms").hide();
+  $(".disease-treatment").hide();
 }
 
 // $(".reset-button").click(function () {
