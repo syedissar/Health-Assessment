@@ -10,6 +10,26 @@ body {
   background-image: url(/static/img/download.png);
 }
 
+#fullscreen-button {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: #052044;
+  padding: 10px;
+  border-radius: 9px;
+  display: flex;
+  border: none;
+  z-index: 1;
+}
+#fullscreen-button:hover {
+  background-color: red;
+  cursor: pointer;
+}
+#fullscreen-button > img {
+  height: 20px;
+  width: 20px;
+}
+
 .main-page {
   position: absolute;
 }
@@ -107,6 +127,7 @@ body {
   background-color: #ffffff;
   border: 10px solid #01132b;
   background-size: cover;
+  margin-bottom: 50px;
 }
 
 .inner-body {
@@ -157,49 +178,64 @@ body {
 
 .main-prediction {
   text-align: center;
-  color: white;
   font-weight: 500;
-  color: white;
-  margin-bottom: 30px;
-  padding: 7px 14px;
-  background-color: #1f6491;
+  color: #595757;
+  padding: 8px 16px;
+  background-color: #ffffff;
   display: inline-block;
-  border-radius: 15px;
-  border: 1px solid yellow;
+  border-radius: 30px;
+  border: 4px outset orange;
+  font-size: 26px;
+  margin: 15px 0 15px 0;
 }
 
 .prediction-explanation {
-  text-align: center;
-  color: white;
+  color: #757575;
   font-weight: 500;
   text-align: justify;
-  font-weight: 500;
-  margin: 0 0 20px 0;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  margin: 0;
 }
 
 .disease-overview {
   width: 85%;
   margin-left: auto;
   margin-right: auto;
+  background-color: lightblue;
+  padding: 15px;
+  border-radius: 10px;
 }
 
-.disease-symptoms > div {
+.disease-symptoms {
   width: 85%;
-  margin-right: auto;
   margin-left: auto;
-}
-.symptoms-title {
-  display: flex;
-  align-items: center;
-  color: white;
-  font-size: 22px;
-  font-weight: 400;
-  margin: 0 0 15px 0;
-  text-decoration: underline;
+  margin-right: auto;
+  background-color: lightblue;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
 }
 
 .symptoms-body {
-  margin: 0 0 20px 0;
+  color: #757575;
+  font-weight: 500;
+  text-align: justify;
+  padding: 15px 7px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.symptoms-title {
+  display: flex;
+  align-items: center;
+  color: #1f6491;
+  font-size: 22px;
+  font-weight: 400;
+  margin: 4px 0 15px 5px;
 }
 
 .symptoms-images {
@@ -214,7 +250,7 @@ body {
   padding: 5px 12px;
   font-weight: 400;
   background-color: red;
-  margin: 3px 0;
+  margin: 3px 3px;
   display: inline-block;
 }
 
@@ -222,15 +258,21 @@ body {
   width: 85%;
   margin-right: auto;
   margin-left: auto;
+  background-color: lightblue;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .treatment-body {
-  text-align: center;
-  color: white;
+  color: #757575;
   font-weight: 500;
   text-align: justify;
-  font-weight: 500;
-  margin: 0 0 15px 0;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  margin: 0;
 }
 
 .tags-input {
@@ -334,21 +376,23 @@ body {
   font-family: monospace;
 }
 .made-with-love {
+  /* background-color: #082d5f; */
+  /* padding: 5px 10px 4px 10px; */
+  /* border-radius: 13px 13px 0 0; */
+  /* border: 3px solid #0a5c87; */
   position: absolute;
-  color: #ffffff;
-  bottom: 0;
+  color: #01132bc2;
+  bottom: -20px;
   font-size: 11px;
   margin: 0;
-  background-color: #082d5f;
-  padding: 5px 10px 4px 10px;
-  border-radius: 13px 13px 0 0;
-  border: 3px solid #0a5c87;
   border-bottom: none;
-  font-family: 'Martian Mono';
+  font-family: "Martian Mono";
   left: 50%;
   transform: translate(-50%, 0%);
   white-space: nowrap;
-  font-weight: 400;
+  font-weight: 600;
+  z-index: -1;
+  font-size: 13px;
 }
 
 /* Mental Health Assessment Start */
@@ -567,10 +611,10 @@ input[type="radio"] {
   #overall-error-fix {
     margin: 20px 0;
   }
-  .question{
+  .question {
     padding: 10px 30px 0 30px;
   }
-  .mental-health-form{
+  .mental-health-form {
     width: 100%;
   }
 }

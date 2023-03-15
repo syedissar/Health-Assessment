@@ -45,25 +45,34 @@ tagInputEl.addEventListener("keydown", function (event) {
 
 // Loading Bar Start
 let form = document.querySelector("#prediction-form");
-let submitButton = document.querySelector("#submitButton");
+let submitButton = $("#submitButton");
 let loadingBarContainer = document.querySelector("#loadingBarContainer");
 let progress = document.querySelector(".progress");
 let progressText = document.querySelector(".progress-text");
 
-$(".main-prediction").hide();
-$(".symptoms-title").hide();
+$(".prediction").hide();
+$(".disease-overview").hide();
+$(".disease-symptoms").hide();
+$(".disease-treatment").hide();
 
 form.addEventListener("submit", (event) => {
   event.preventDefault(); // prevent default form submission behavior
   loadingBarContainer.style.display = "block"; // show loading bar
-  submitButton.disabled = true; // disable submit button
+  // submitButton.disabled = true; // disable submit button
+  submitButton.css({
+    "background-color": "grey",
+    color: "rgb(178, 175, 175)",
+    cursor: "not-allowed",
+  });
+  submitButton.prop("disabled", true); // disable submit button
+
   let width = 0;
   let intervalId = setInterval(() => {
     if (width === 100) {
       clearInterval(intervalId);
       progressText.textContent = "Done!";
       loadingBarContainer.style.display = "none"; // hide loading bar
-      submitButton.disabled = false; // enable submit button
+      // submitButton.disabled = false; // enable submit button
 
       // save input values to a database or storage medium here
       console.log(inputs);
@@ -72,20 +81,25 @@ form.addEventListener("submit", (event) => {
     }
 
     width++;
-    progress.style.width = `${width}%`;
 
     if (width === 1) {
       progressText.textContent = "ᴘʀᴏᴄᴇꜱꜱɪɴɢ ᴅᴀᴛᴀ";
-    } else if (width === 20) {
+      progress.style.width = `${width}%`;
+    } else if (width === 1) {
       progressText.textContent = "ꜱᴇɴᴅɪɴɢ ᴛᴏ ᴀᴘɪ";
-    } else if (width === 40) {
+      progress.style.width = `${width}%`;
+    } else if (width === 10) {
       progressText.textContent = "ꜰᴇᴇᴅɪɴɢ ᴍᴏᴅᴇʟ";
-    } else if (width === 60) {
+      progress.style.width = `${width}%`;
+    } else if (width === 30) {
       progressText.textContent = "ᴘʀᴇᴅɪᴄᴛɪɴɢ ᴅɪꜱᴇᴀꜱᴇ";
-    } else if (width === 73) {
-      progressText.textContent = "ꜰɪɴᴀʟɪᴢɪɴɢ ᴘʀᴇᴅɪᴄᴛɪᴏɴ";
-    } else if (width === 85) {
+      progress.style.width = `${width}%`;
+    } else if (width === 60) {
+      progressText.textContent = "ꜰɪɴᴀʟ ᴘʀᴇᴅɪᴄᴛɪᴏɴ";
+      progress.style.width = `${width}%`;
+    } else if (width === 90) {
       progressText.textContent = "ʀᴇᴛʀɪᴇᴠɪɴɢ ᴅᴀᴛᴀ";
+      progress.style.width = `${width}%`;
     } else if (width === 100) {
       // Ajax Request
       $.ajax({
@@ -95,8 +109,11 @@ form.addEventListener("submit", (event) => {
         type: "POST",
         url: "/",
       }).done(function (data) {
-        $(".main-prediction").show();
-        $(".symptoms-title").show();
+        $(".prediction").show();
+        $(".disease-overview").show();
+        $(".disease-symptoms").show();
+        $(".disease-treatment").show();
+
         $(".main-prediction").text(data.prediction).show();
         $(".prediction-explanation").text(data.explanation).show();
         $(".symptoms-body").html(data.symptoms).show();
@@ -242,25 +259,24 @@ SecondForm.addEventListener("submit", (event) => {
     type: "POST",
     url: "/mental",
   }).done(function (data) {
-
     // for mental result [heading]
     mental_data_from_model = data.mental_report;
     $("#start-asses").text("RESULTS").show();
     $("#start-asses").css({
-      "color": "white",
+      color: "white",
       "background-color": "green",
-      "margin": "10px 0 0 0",
-      "padding": "7px 10px 4px 10px",
+      margin: "10px 0 0 0",
+      padding: "7px 10px 4px 10px",
       "border-radius": "5px",
-      "display": "inline-block",
+      display: "inline-block",
       "font-weight": "500",
-      "position": "relative",
-      "top": "50%",
-      "left": "50%",
-      "transform": "translate(-50%, 50%)",
+      position: "relative",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, 50%)",
       "font-size": "27px",
-      "border": "3px solid #cbc5c5",
-      "z-index":"1"
+      border: "3px solid #cbc5c5",
+      "z-index": "1",
     });
 
     $(".semi-progress").show();
@@ -283,7 +299,6 @@ SecondForm.addEventListener("submit", (event) => {
           "border-bottom-color": "green",
           "border-right-color": "green",
         });
-        
       } else if (perc <= 66.666666) {
         $bar.css({
           "border-bottom-color": "orange",
@@ -326,10 +341,12 @@ $("#r-phobic-exp").hide();
 $("#r-para-exp").hide();
 $("#r-psyc-exp").hide();
 
-document.getElementById("r-overall-title").addEventListener("click", function () {
-  $("#r-overall-exp").toggle();
-  $("#r-overall-title").toggleClass("rounded");
-});
+document
+  .getElementById("r-overall-title")
+  .addEventListener("click", function () {
+    $("#r-overall-exp").toggle();
+    $("#r-overall-title").toggleClass("rounded");
+  });
 document.getElementById("r-somat-title").addEventListener("click", function () {
   $("#r-somat-exp").toggle();
   $("#r-somat-title").toggleClass("rounded");
@@ -354,10 +371,12 @@ document.getElementById("r-host-title").addEventListener("click", function () {
   $("#r-host-exp").toggle();
   $("#r-host-title").toggleClass("rounded");
 });
-document.getElementById("r-phobic-title").addEventListener("click", function () {
-  $("#r-phobic-exp").toggle();
-  $("#r-phobic-title").toggleClass("rounded");
-});
+document
+  .getElementById("r-phobic-title")
+  .addEventListener("click", function () {
+    $("#r-phobic-exp").toggle();
+    $("#r-phobic-title").toggleClass("rounded");
+  });
 document.getElementById("r-para-title").addEventListener("click", function () {
   $("#r-para-exp").toggle();
   $("#r-para-title").toggleClass("rounded");
@@ -368,3 +387,12 @@ document.getElementById("r-psyc-title").addEventListener("click", function () {
 });
 
 // Mental Health Assessment End
+
+// Fullsreen
+function toggleFullScreen() {
+  if (document.fullscreenElement) {
+    document.exitFullscreen();
+  } else {
+    document.documentElement.requestFullscreen();
+  }
+}
