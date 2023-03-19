@@ -1,0 +1,703 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background-image: url(/static/img/download.png);
+}
+
+#fullscreen-button {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: #052044;
+  padding: 10px;
+  border-radius: 9px;
+  display: flex;
+  border: none;
+  z-index: 1;
+}
+#fullscreen-button:hover {
+  background-color: red;
+  cursor: pointer;
+}
+#fullscreen-button > img {
+  height: 20px;
+  width: 20px;
+}
+
+.main-page {
+  position: absolute;
+  margin-bottom: 50px;
+}
+
+.note-warning {
+  text-align: justify;
+  color: #ff5733;
+  margin: 0;
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 500;
+  font-size: 10px;
+  background-color: #01132ba6;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.loading-screen > section > div {
+  background-color: #01132bd1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  padding: 10px 10px 30px 10px;
+}
+
+.loading-screen > section > div > h6 {
+  text-align: center;
+  font-size: 25px;
+  margin: 0;
+  color: white;
+  font-family: sans-serif;
+  margin-left: 15px;
+}
+
+#loading-screen-logo {
+  position: absolute;
+  top: 50%;
+  width: 110px;
+  left: 50%;
+  transform: translate(-49%, -72%);
+}
+
+#mental-health-button {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  padding: 8px 13px;
+  background-color: #3d8bb4;
+  color: white;
+  border: 2px solid white;
+  width: 175px;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+#mental-health-button:hover {
+  cursor: pointer;
+  background-color: #d58a00;
+}
+
+#physical-health-button {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  padding: 8px 13px;
+  background-color: #3d8bb4;
+  color: white;
+  border: 2px solid white;
+  width: 175px;
+  font-size: 15px;
+}
+
+#physical-health-button:hover {
+  cursor: pointer;
+  background-color: #d58a00;
+}
+
+.disease-prediction-page {
+  position: absolute;
+}
+.disease-prediction-page > section {
+  background-image: url(/static/img/disease-bg.jpg);
+  background-size: cover;
+}
+.mental-health-prediction-page > section {
+  background-image: url(/static/img/mental-bg.jpg);
+  background-size: cover;
+}
+
+.mental-health-prediction-page {
+  position: absolute;
+}
+
+#back-button-for-physical {
+  padding: 6px 12px;
+  border-radius: 5px;
+  background-color: none;
+  background: #ffffff7a;
+  border: none;
+  color: gray;
+  font-size: 16px;
+}
+
+#back-button-for-physical:hover {
+  background: #bbafaf7a;
+  cursor: pointer;
+  color: white;
+}
+
+.center-body {
+  position: relative;
+  width: 500px;
+  min-height: 600px;
+  border-radius: 15px;
+  padding: 30px 10px;
+  margin: 11px 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  background-image: url(/static/img/main-bg.jpg);
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+  border: 10px solid #01132b;
+  background-size: cover;
+}
+
+.loading-screen-center-body {
+  position: relative;
+  width: 500px;
+  min-height: 600px;
+  border-radius: 15px;
+  padding: 30px 10px;
+  margin: 11px 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  background-image: url(/static/img/main-bg.jpg);
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+  border: 10px solid #01132b;
+  background-size: cover;
+}
+
+.inner-body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+#enter-symptoms {
+  text-align: center;
+  color: wheat;
+  font-weight: 400;
+  width: 260px;
+  margin: 10px 0;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(1 19 43 / 75%);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Loading Bar Start */
+#loadingBarContainer {
+  display: none;
+  margin-top: 20px;
+}
+
+.progress-bar {
+  position: relative;
+  width: 100%;
+  height: 30px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: #4caf50;
+  width: 0%;
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  color: black;
+  white-space: nowrap;
+}
+/* Loading Bar End */
+
+/* Loading Bar for mental Health */
+.mental-health-loading {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  padding: 20px;
+  background-color: rgb(1 19 43 / 75%);
+  border-radius: 20px;
+  border: 3px solid rgb(255 165 0 / 60%);
+}
+
+.progress-2 {
+  height: 100%;
+  background-color: #4caf50;
+  width: 0%;
+}
+.progress-text-2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  color: black;
+  white-space: nowrap;
+}
+/* Loading Bar for mental Health */
+
+.prediction {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.main-prediction {
+  text-align: center;
+  font-weight: 500;
+  color: #595757;
+  padding: 8px 16px;
+  background-color: #ffffff;
+  display: inline-block;
+  border-radius: 30px;
+  border: 4px outset orange;
+  font-size: 26px;
+  margin: 15px 0 15px 0;
+}
+
+.prediction-explanation {
+  color: #757575;
+  font-weight: 500;
+  text-align: justify;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  margin: 0;
+}
+
+.disease-overview {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: lightblue;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.disease-symptoms {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: lightblue;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.mental-loading-icon-container{
+  height: 200px;
+  position: relative;
+}
+
+.mental-loading-icon-container > img {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -55%);
+}
+
+.symptoms-body {
+  color: #757575;
+  font-weight: 500;
+  text-align: justify;
+  padding: 15px 7px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.symptoms-title {
+  display: flex;
+  align-items: center;
+  color: #1f6491;
+  font-size: 22px;
+  font-weight: 400;
+  margin: 4px 0 15px 5px;
+}
+
+.symptoms-images {
+  margin-left: 9px;
+  height: 32px;
+}
+
+.symptoms-body > span {
+  font-size: 17px;
+  color: white;
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-weight: 400;
+  background-color: red;
+  margin: 3px 3px;
+  display: inline-block;
+}
+
+.disease-treatment {
+  width: 85%;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: lightblue;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.treatment-body {
+  color: #757575;
+  font-weight: 500;
+  text-align: justify;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  margin: 0;
+}
+
+.tags-input {
+  display: flex;
+  flex-direction: column;
+  min-width: 65%;
+  max-width: 90%;
+  padding: 5px;
+  border: 3px solid #0f78e2;
+  border-radius: 5px;
+  background-color: lightblue;
+}
+
+.tags-input ul {
+  display: inline;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tags-input li {
+  display: inline-block;
+  background-color: #0f78e2;
+  color: #fff;
+  font-size: 14px;
+  margin: 5px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-weight: 400;
+}
+
+.tags-input input {
+  border: none;
+  font-size: 14px;
+  padding: 5px;
+}
+.tags-input button[type="submit"] {
+  background-color: #02a102;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 6px 12px;
+  transition: background-color 0.3s ease;
+}
+
+.reset-button {
+  background-color: #ff1414;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 6px 12px;
+  transition: background-color 0.3s ease;
+}
+.reset-button:hover {
+  background-color: #d20505;
+}
+
+.tags-input button[type="submit"]:hover {
+  background-color: green;
+}
+
+.version {
+  position: absolute;
+  color: white;
+  bottom: 0px;
+  right: 0px;
+  font-weight: 600;
+  font-size: 15px;
+  margin: 0;
+  background-color: #001e46;
+  padding: 4px 7px 3px 8px;
+  border-radius: 17px 0 5px 0;
+  border: 3px solid #01132b;
+  border-bottom: none;
+  border-right: none;
+  font-family: monospace;
+}
+.made-with-love {
+  /* background-color: #082d5f; */
+  /* padding: 5px 10px 4px 10px; */
+  /* border-radius: 13px 13px 0 0; */
+  /* border: 3px solid #0a5c87; */
+  position: absolute;
+  color: #003f8fba;
+  bottom: -20px;
+  font-size: 11px;
+  margin: 0;
+  border-bottom: none;
+  font-family: "Martian Mono";
+  left: 50%;
+  transform: translate(-50%, 0%);
+  white-space: nowrap;
+  font-weight: 600;
+  /* z-index: -1; */
+  font-size: 12px;
+}
+
+/* Mental Health Assessment Start */
+.mental-health-form {
+  background-color: #373333ab;
+  border: 3px solid #c98307e3;
+  border-radius: 10px;
+  padding: 31px 0;
+  width: 80%;
+}
+
+.question-number {
+  margin: 0;
+  color: black;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 9px;
+  background-color: white;
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 7px;
+}
+
+.question {
+  padding: 10px 50px 0 50px;
+}
+
+.question {
+  display: none;
+}
+
+.question.current {
+  display: flex;
+}
+
+.question > div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.question > h2 {
+  font-size: 18px;
+  color: white;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 15px;
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+.question > div > label {
+  color: white;
+  font-size: 20px;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  margin-bottom: 2px;
+}
+
+input[type="radio"] {
+  height: 25px;
+  width: 25px;
+  margin: 0;
+  margin-right: 8px;
+}
+
+#div-for-buttons {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  margin-top: 20px;
+}
+#div-for-buttons > button {
+  background-color: #09b409;
+  font-size: 20px;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 0 5px;
+  border: none;
+}
+#div-for-buttons > button:hover {
+  cursor: pointer;
+  color: #d8cece;
+  background-color: #0a900a;
+}
+.back-button-for-mental {
+  padding: 5px 10px !important;
+  border-radius: 5px !important;
+  display: inline-block !important;
+  background: #ffffffe8 !important;
+  border: none !important;
+  color: gray !important;
+  font-size: 18px !important;
+}
+.back-button-for-mental:hover {
+  background: gray !important;
+  cursor: pointer !important;
+  color: white !important;
+}
+
+/* Semi Circle Progress Bar Start */
+.semi-progress {
+  position: relative;
+  margin: 4px;
+  float: left;
+  text-align: center;
+}
+
+.barOverflow {
+  position: relative;
+  overflow: hidden;
+  height: 65px;
+  margin-bottom: -14px;
+}
+.semi-bar {
+  top: 0;
+  left: 0;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 12px solid #ebe7e7e0;
+  border-bottom-color: #0bf;
+  border-right-color: #0bf;
+  color: white;
+}
+/* Semi Circle Progress Bar End */
+
+.mental-health-results {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #373333ab;
+  border: 3px solid #cbc5c5;
+  border-radius: 10px;
+  padding: 31px 0;
+}
+
+.internal-mental-health-results {
+  display: inline-block;
+  width: 140px;
+  margin-bottom: 25px;
+}
+
+#overall-error-fix {
+  margin: 20px 60px;
+}
+
+.disorder-explanation-title {
+  color: white;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  text-align: center;
+  margin: 0 6px 0 4px;
+  font-size: 15px;
+  padding: 3px 5px;
+  background-color: #ffffff54;
+  display: grid;
+  font-weight: 100;
+  border-radius: 0 0 7px 7px;
+  bottom: -10px;
+  position: relative;
+}
+
+.semi-progress > span {
+  color: white;
+  position: absolute;
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-42%, 3%);
+}
+
+.disorder-explanation {
+  text-align: justify;
+  font-size: 12px;
+  background-color: #ffffff3b;
+  padding: 8px;
+  border-radius: 0 0 5px 5px;
+  color: white;
+  font-weight: 100;
+  margin: 0 6px 0 4px;
+  position: relative;
+  top: 10px;
+}
+
+.disorder-explanation-title:hover {
+  background-color: red;
+  cursor: pointer;
+}
+
+.disorder-explanation-title.rounded {
+  border-radius: 0 0 0 0;
+}
+
+/* Mental Health Assessment End */
+/* Media Query Start */
+@media (min-width: 0) and (max-width: 500px) {
+  .loading-screen-center-body {
+    width: 85vw;
+  }
+  .tags-input {
+    width: 100%;
+  }
+  .center-body {
+    width: auto;
+  }
+  .main-page {
+    width: 100%;
+  }
+  .mental-health-prediction-page {
+    width: 100%;
+  }
+  .disease-prediction-page {
+    width: 100%;
+  }
+  #overall-error-fix {
+    margin: 20px 0;
+  }
+  .question {
+    padding: 10px 30px 0 30px;
+  }
+  .mental-health-form {
+    width: 100%;
+  }
+  .mental-health-loading {
+    width: 90%;
+  }
+}
+/* Media Query End */
