@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#031936">
-    <link rel="icon" href="/static/img/lpu-icon.png">
+    <link rel="icon" href="/static/img/app-icon.png">
     <title>Health Assessment</title>
     <link rel="stylesheet" href="../static/css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,8 +21,8 @@
     <section class="loading-screen">
         <section class="loading-screen-center-body">
             <div>
-                <img id="loading-screen-logo" src="" alt="" loading="eager">
-                <img src="/static/img/loading.svg" style="width: 175px;" alt="" loading="eager">
+                <img id="loading-screen-logo" src="" alt="">
+                <img src="/static/img/loading.svg" style="width: 175px;" alt="">
                 <h6 class="loading-text">Loading...</h6>
             </div>
         </section>
@@ -31,8 +31,8 @@
     <section class="main-page">
         <section class="center-body">
             <button id="fullscreen-button" onclick="toggleFullScreen()"><img src="/static/img/fullscreen.png"
-                    alt="" loading="eager"></button>
-            <img src="../static/img/lpu-icon.png" loading="eager" alt="logo"
+                    alt=""></button>
+            <img src="../static/img/app-icon.png" alt="logo"
                 style="height: 150px;display: block;margin-left: auto;margin-right: auto;width: 150px;">
             <h2 style="text-align: center;color: white;font-weight: 500;">Health Assessment</h2>
             <h6 class="note-warning"><span style="display: flex;justify-content: center;font-size: 20px;">Important
@@ -44,9 +44,9 @@
             <h3 style="text-align: center;color: wheat;font-weight: 400;">Start Assessment:</h3>
             <section class="inner-body" style="position: relative;">
                 <button id="mental-health-button">Mental Health<img src="/static/img/mental-icon.png" alt=""
-                        style="height: 32px;margin-left: 18px;" loading="eager"></button>
+                        style="height: 32px;margin-left: 18px;"></button>
                 <button id="physical-health-button">Physical Health <img src="/static/img/physical-icon.png" alt=""
-                        style="height: 32px;margin-left: 8px;" loading="eager"></button>
+                        style="height: 32px;margin-left: 8px;"></button>
             </section>
             <h6 class="version">V0.8</h6>
         </section>
@@ -55,7 +55,7 @@
 
     <section hidden class="disease-prediction-page">
         <section class="center-body">
-            <img src="../static/img/lpu-icon.png" loading="eager" alt="logo"
+            <img src="../static/img/app-icon.png" alt="logo"
                 style="height: 150px;display: block;margin-left: auto;margin-right: auto;width: 150px;">
             <h2 style="text-align: center;color: white;font-weight: 500;">Disease Prediction</h2>
             <h3 id="enter-symptoms">Please Enter Your Symptoms: <br> ( Enter at least 5 symptoms )</h3>
@@ -64,138 +64,6 @@
                     <ul id="tags"></ul>
                     <input type="text" placeholder="Enter Symptoms" id="tag-input" list="tag-suggestions" required>
                     <datalist id="tag-suggestions">
-                        <option value="Itching">
-                        <option value="Skin Rash">
-                        <option value="Nodal Skin Eruptions">
-                        <option value="Continuous Sneezing">
-                        <option value="Shivering">
-                        <option value="Chills">
-                        <option value="Joint Pain">
-                        <option value="Stomach Pain">
-                        <option value="Acidity">
-                        <option value="Ulcers On Tongue">
-                        <option value="Muscle Wasting">
-                        <option value="Vomiting">
-                        <option value="Burning Micturition">
-                        <option value="Spotting  urination">
-                        <option value="Fatigue">
-                        <option value="Weight Gain">
-                        <option value="Anxiety">
-                        <option value="Cold Hands And Feets">
-                        <option value="Mood Swings">
-                        <option value="Weight Loss">
-                        <option value="Restlessness">
-                        <option value="Lethargy">
-                        <option value="Patches In Throat">
-                        <option value="Irregular Sugar Level">
-                        <option value="Cough">
-                        <option value="High Fever">
-                        <option value="Sunken Eyes">
-                        <option value="Breathlessness">
-                        <option value="Sweating">
-                        <option value="Dehydration">
-                        <option value="Indigestion">
-                        <option value="Headache">
-                        <option value="Yellowish Skin">
-                        <option value="Dark Urine">
-                        <option value="Nausea">
-                        <option value="Loss Of Appetite">
-                        <option value="Pain Behind The Eyes">
-                        <option value="Back Pain">
-                        <option value="Constipation">
-                        <option value="Abdominal Pain">
-                        <option value="Diarrhoea">
-                        <option value="Mild Fever">
-                        <option value="Yellow Urine">
-                        <option value="Yellowing Of Eyes">
-                        <option value="Acute Liver Failure">
-                        <option value="Fluid Overload">
-                        <option value="Swelling Of Stomach">
-                        <option value="Swelled Lymph Nodes">
-                        <option value="Malaise">
-                        <option value="Blurred And Distorted Vision">
-                        <option value="Phlegm">
-                        <option value="Throat Irritation">
-                        <option value="Redness Of Eyes">
-                        <option value="Sinus Pressure">
-                        <option value="Runny Nose">
-                        <option value="Congestion">
-                        <option value="Chest Pain">
-                        <option value="Weakness In Limbs">
-                        <option value="Fast Heart Rate">
-                        <option value="Pain During Bowel Movements">
-                        <option value="Pain In Anal Region">
-                        <option value="Bloody Stool">
-                        <option value="Irritation In Anus">
-                        <option value="Neck Pain">
-                        <option value="Dizziness">
-                        <option value="Cramps">
-                        <option value="Bruising">
-                        <option value="Obesity">
-                        <option value="Swollen Legs">
-                        <option value="Swollen Blood Vessels">
-                        <option value="Puffy Face And Eyes">
-                        <option value="Enlarged Thyroid">
-                        <option value="Brittle Nails">
-                        <option value="Swollen Extremeties">
-                        <option value="Excessive Hunger">
-                        <option value="Extra Marital Contacts">
-                        <option value="Drying And Tingling Lips">
-                        <option value="Slurred Speech">
-                        <option value="Knee Pain">
-                        <option value="Hip Joint Pain">
-                        <option value="Muscle Weakness">
-                        <option value="Stiff Neck">
-                        <option value="Swelling Joints">
-                        <option value="Movement Stiffness">
-                        <option value="Spinning Movements">
-                        <option value="Loss Of Balance">
-                        <option value="Unsteadiness">
-                        <option value="Weakness Of One Body Side">
-                        <option value="Loss Of Smell">
-                        <option value="Bladder Discomfort">
-                        <option value="Foul Smell Of urine">
-                        <option value="Continuous Feel Of Urine">
-                        <option value="Passage Of Gases">
-                        <option value="Internal Itching">
-                        <option value="Toxic Look (typhos)">
-                        <option value="Depression">
-                        <option value="Irritability">
-                        <option value="Muscle Pain">
-                        <option value="Altered Sensorium">
-                        <option value="Red Spots Over Body">
-                        <option value="Belly Pain">
-                        <option value="Abnormal Menstruation">
-                        <option value="Dischromic  Patches">
-                        <option value="Watering From Eyes">
-                        <option value="Increased Appetite">
-                        <option value="Polyuria">
-                        <option value="Family History">
-                        <option value="Mucoid Sputum">
-                        <option value="Rusty Sputum">
-                        <option value="Lack Of Concentration">
-                        <option value="Visual Disturbances">
-                        <option value="Receiving Blood Transfusion">
-                        <option value="Receiving Unsterile Injections">
-                        <option value="Coma">
-                        <option value="Stomach Bleeding">
-                        <option value="Distention Of Abdomen">
-                        <option value="History Of Alcohol Consumption">
-                        <option value="Fluid Overload.1">
-                        <option value="Blood In Sputum">
-                        <option value="Prominent Veins On Calf">
-                        <option value="Palpitations">
-                        <option value="Painful Walking">
-                        <option value="Pus Filled Pimples">
-                        <option value="Blackheads">
-                        <option value="Scurring">
-                        <option value="Skin Peeling">
-                        <option value="Silver Like Dusting">
-                        <option value="Small Dents In Nails">
-                        <option value="Inflammatory Nails">
-                        <option value="Blister">
-                        <option value="Red Sore Around Nose">
-                        <option value="Yellow Crust Ooze">
                     </datalist>
 
                     <form style="text-align: center;margin-top: 10px;" id="prediction-form">
@@ -217,19 +85,19 @@
             </div>
             <div class="disease-overview">
                 <h1 class="symptoms-title">Overview<img class="symptoms-images" src="/static/img/overview-icon.png"
-                        alt="" loading="eager"></h1>
+                        alt=""></h1>
                 <h3 class="prediction-explanation"></h3>
             </div>
             <div class="disease-symptoms">
                 <div>
                     <h1 class="symptoms-title">Symptoms<img class="symptoms-images" src="/static/img/symptom-icon.png"
-                            alt="" loading="eager"></h1>
+                            alt=""></h1>
                     <div class="symptoms-body"></div>
                 </div>
             </div>
             <div class="disease-treatment">
                 <h1 class="symptoms-title">Treatment<img class="symptoms-images" src="/static/img/treatment-icon.png"
-                        alt="" loading="eager"></h1>
+                        alt=""></h1>
                 <h3 class="treatment-body"></h3>
             </div>
             <h6 class="version">V0.8</h6>
@@ -239,7 +107,7 @@
     <!-- Mental Health Prediction Section Start -->
     <section hidden class="mental-health-prediction-page">
         <section class="center-body">
-            <img src="../static/img/lpu-icon.png" loading="eager" alt="logo"
+            <img src="../static/img/app-icon.png" alt="logo"
                 style="height: 150px;display: block;margin-left: auto;margin-right: auto;width: 150px;">
             <h2 style="text-align: center;color: white;font-weight: 500;margin: 20px 0 0 0;">Mental Health (BSI-53)</h2>
             <h3 id="start-asses" style="text-align: center;color: wheat;font-weight: 400;">Start Your Assessment:</h3>
@@ -1943,10 +1811,11 @@
                 <section class="mental-health-loading">
                     <div id="loadingBarContainer-2">
                         <div class="mental-loading-icon-container">
-                            <img src="/static/img/white-circle.png" loading="eager" alt="">
-                            <img style="height: 95px;" src="/static/img/artificial-intelligence.png" loading="eager" alt="">
-                            <img style="height: 100px;transform: translate(-44%, -47%);" src="/static/img/men-lod-mag.svg" loading="eager" alt="">
-                            <img style="height: 175px;" src="/static/img/loading.svg" loading="eager" alt="">
+                            <img src="/static/img/white-circle.png" alt="">
+                            <img style="height: 95px;" src="/static/img/artificial-intelligence.png" alt="">
+                            <img style="height: 100px;transform: translate(-44%, -47%);"
+                                src="/static/img/men-lod-mag.svg" alt="">
+                            <img style="height: 175px;" src="/static/img/loading.svg" alt="">
                         </div>
                         <div class="progress-bar">
                             <div class="progress-2"></div>
